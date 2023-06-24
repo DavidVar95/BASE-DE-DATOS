@@ -236,22 +236,40 @@ Para la base de datos ejecutamos el programa XAMPP
 , activamos el mysql para abrir un servidor para crear nustra base de datos.
 
 Creamos una tabla con las columnas de los datos que ocupamos, temperatura, humedad, distancia y fecha
-![](https://github.com/DavidVar95/Practica-temp-hum-y-dist-node-red/blob/main/Captura%20de%20pantalla%202023-06-17%2010.50.07.png?raw=true)
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.04.11.png?raw=true)
+
+agregamos una funcion con el codigo
+```
+var query = "INSERT INTO `dvg_95` (`ID`, `FECHA`, `DEVISE`, `TEMPERATURA`, `HUMEDAD`, `DISTANCIA`) VALUES (NULL, current_timestamp(), '";
+query = query + msg.payload.DEVICE + "','";
+query = query + msg.payload.TEMPERATURA + "','";
+query = query + msg.payload.HUMEDAD + "','";
+query = query + msg.payload.DISTANCIA + "');'";
+msg.topic = query;
+return msg;
+```
+con los datos correspondientes de la base de datos.
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.14.13.png?raw=true)
+
+agregamos un mysql con la configuracion del servidor y la base de datos
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.25.36.png?raw=true)
 
 # Resultados
 
 
-![](https://github.com/DavidVar95/Practica-temp-hum-y-dist-node-red/blob/main/Captura%20de%20pantalla%202023-06-17%2010.50.07.png?raw=true)
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.28.19.png?raw=true)
 
 
 En el node-red podememos ver los datos que esta tomando el ESP32
 
 
-![](https://github.com/DavidVar95/Practica-temp-hum-y-dist-node-red/blob/main/Captura%20de%20pantalla%202023-06-17%2010.52.21.png?raw=true))
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.32.26.png?raw=true)
 
-![](https://github.com/DavidVar95/Practica-temp-hum-y-dist-node-red/blob/main/Captura%20de%20pantalla%202023-06-17%2010.52.42.png?raw=true))
+datos captados en la base de datos
 
-![](https://github.com/DavidVar95/Practica-temp-hum-y-dist-node-red/blob/main/Captura%20de%20pantalla%202023-06-17%2010.52.50.png?raw=true))
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.35.39.png?raw=true)
+
+![](https://github.com/DavidVar95/BASE-DE-DATOS/blob/main/Captura%20de%20pantalla%202023-06-23%2021.38.16.png?raw=true)
 
 # Créditos
 
